@@ -1,4 +1,3 @@
-import React from "react";
 import { GridChild } from "./style";
 import { H3 } from "../../H3/style";
 import { H1 } from "../../H1/style";

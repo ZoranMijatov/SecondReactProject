@@ -9,6 +9,7 @@ interface CardDetails {
   price: string | number;
   bandwidth: string;
   uploadSpeed: string;
+  primaryCard?: boolean;
 }
 
 const PricingCard = ({
@@ -17,9 +18,10 @@ const PricingCard = ({
   price,
   bandwidth,
   uploadSpeed,
+  primaryCard,
 }: CardDetails) => {
   return (
-    <StyledCard>
+    <StyledCard className={primaryCard ? "primary" : ""}>
       <div
         style={{
           textAlign: "center",
@@ -28,13 +30,25 @@ const PricingCard = ({
         }}
       >
         <h3>{title}</h3>
-        <H1 Pricing>{price}</H1>
+        <H1
+          Pricing
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "5px",
+          }}
+        >
+          <span style={{ fontSize: "43px" }}>$</span>
+          {price}
+        </H1>
         <hr />
         <p>{storage}</p>
         <hr />
         <p>{bandwidth}</p>
         <hr />
         <p>{uploadSpeed}</p>
+        <hr />
         <Button Pricing>Learn More</Button>
       </div>
     </StyledCard>
